@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>С Днём Рождения!</title>
+
+<style>
+@import url('https://fonts.cdnfonts.com/css/caslon-antique');
+
+body {
+    margin: 0;
+    background: #fffaf0;
+    font-family: 'Caslon Antique Rus', serif;
+    color: #33231b;
+    text-align: center;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 70px;
+    margin: 10px;
+}
+
+p {
+    font-size: 28px;
+    margin: 10px;
+}
+
+img {
+    margin-top: 20px;
+}
+
+/* Контейнер для падающих элементов */
+.rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.fall {
+    position: absolute;
+    top: -50px;
+}
+
+.fall span {
+    display: inline-block;
+    animation: sway 2s ease-in-out infinite alternate;
+}
+
+@keyframes fallDown {
+    0% { top: -50px; }
+    100% { top: 110vh; }
+}
+
+@keyframes sway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(-15deg); }
+}
+</style>
+
+</head>
+<body>
+
+<h1>С Днём Рождения!</h1>
+
+<p>🌷🌷Всего наилучшего! Желаю удачи, любви, здоровья, счастья. Пусть дни будут яркими и радостными!🌷🌷</p>
+
+<img src="html_happy_birthday/ginger-cat-cat-jumping.gif"
+     alt="котик"
+     width="300">
+
+<div class="rain"></div>
+
+<script>
+const rainContainer = document.querySelector('.rain');
+const symbols = ['🧸','🌷'];
+
+function createItem() {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('fall');
+
+    const item = document.createElement('span');
+    item.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+    
+    // случайная горизонтальная позиция
+    wrapper.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // случайная скорость падения
+    const duration = Math.random() * 3 + 3; // 3-6 секунд
+    wrapper.style.animation = `fallDown ${duration}s linear forwards`;
+    
+    // случайный размер
+    item.style.fontSize = (Math.random() * 40 + 20) + 'px';
+    
+    wrapper.appendChild(item);
+    rainContainer.appendChild(wrapper);
+    
+    // удаляем элемент после падения
+    setTimeout(() => wrapper.remove(), duration * 1000);
+}
+
+// каждые 300 мс создаём новый элемент
+setInterval(createItem, 300);
+</script>
+
+</body>
+</html>
