@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Site for Happy Birthday</title>
+</head>
+<body>
+    <h1>С Днём Рождения!</h1>
+    <p>Всего наилучшего и прекрасного!! Чтобы дни солнцем светились, как и ты.</p>
+</body>
+</html>
+<style>
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4)/ font-family: 
+    Arial, sans-serif; text-align: center; padding-top: 50px;}
+
+h1 {
+    color: white;
+    font-size: 50px;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+}
+</style>
